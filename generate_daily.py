@@ -6,6 +6,8 @@ import os
 import re
 import subprocess
 import textwrap
+import time
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -142,17 +144,33 @@ def fetch_url(url: str) -> str:
 
 def post_json(url: str, payload: dict, api_key: str) -> bytes:
     body = json.dumps(payload).encode("utf-8")
-    request = urllib.request.Request(
-        url,
-        data=body,
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        },
-        method="POST",
-    )
-    with urllib.request.urlopen(request, timeout=90) as response:
-        return response.read()
+    last_error = None
+    for attempt in range(3):
+        request = urllib.request.Request(
+            url,
+            data=body,
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            },
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=90) as response:
+                return response.read()
+        except urllib.error.HTTPError as error:
+            last_error = error
+            if error.code < 500 or attempt == 2:
+                raise
+        except urllib.error.URLError as error:
+            last_error = error
+            if attempt == 2:
+                raise
+        time.sleep(2 * (attempt + 1))
+
+    if last_error:
+        raise last_error
+    raise RuntimeError("Request failed without a specific error")
 
 
 def post_json_response(url: str, payload: dict, api_key: str) -> dict:
@@ -683,6 +701,12 @@ def build_payload() -> dict:
             failures.append(f"{article['source']} AI: {error}")
             enriched_articles.append(article)
 
+    try:
+        prompts = generate_daily_prompts(enriched_articles)
+    except Exception as error:  # noqa: BLE001
+        failures.append(f"Prompts AI: {error}")
+        prompts = build_prompts(enriched_articles[0]["title"] if enriched_articles else "今日建築案例")
+
     payload = {
         "date": dt.date.today().isoformat(),
         "settings": {
@@ -704,7 +728,7 @@ def build_payload() -> dict:
         },
         "sourceNote": "原站文章請保留到原媒體閱讀；這個頁面呈現的是適合學習的整理版內容，方便每日閱讀與語言訓練。",
         "articles": enriched_articles,
-        "prompts": generate_daily_prompts(enriched_articles),
+        "prompts": prompts,
     }
 
     tts_failures = []
