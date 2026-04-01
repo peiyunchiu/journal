@@ -814,8 +814,21 @@ def write_payload(payload: dict) -> None:
     index_path.write_text(json.dumps(existing, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def load_existing_payload_for_today() -> dict | None:
+    if os.getenv("FORCE_REGENERATE") == "1":
+        return None
+
+    today = dt.date.today().isoformat()
+    archive_path = ARCHIVE_DIR / f"{today}.json"
+    if not archive_path.exists():
+        return None
+    return json.loads(archive_path.read_text(encoding="utf-8"))
+
+
 def main() -> None:
-    payload = build_payload()
+    payload = load_existing_payload_for_today()
+    if payload is None:
+        payload = build_payload()
     write_payload(payload)
     print(f"Wrote {OUTPUT_PATH}")
 
