@@ -10,9 +10,10 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-OUTPUT_PATH = Path("/Users/kobee/Desktop/chloe/daily-content.js")
-ARCHIVE_DIR = Path("/Users/kobee/Desktop/chloe/archive")
-AUDIO_DIR = Path("/Users/kobee/Desktop/chloe/audio")
+BASE_DIR = Path(__file__).resolve().parent
+OUTPUT_PATH = BASE_DIR / "daily-content.js"
+ARCHIVE_DIR = BASE_DIR / "archive"
+AUDIO_DIR = BASE_DIR / "audio"
 OPENAI_API_URL = "https://api.openai.com/v1/audio/speech"
 OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 
