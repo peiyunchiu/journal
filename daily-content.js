@@ -1,0 +1,193 @@
+window.DAILY_CONTENT = {
+  "date": "2026-04-01",
+  "settings": {
+    "defaultEnglishVoice": "marin",
+    "englishVoiceOptions": [
+      {
+        "key": "marin",
+        "label": "Marin (Default)"
+      },
+      {
+        "key": "alloy",
+        "label": "Alloy"
+      }
+    ]
+  },
+  "hero": {
+    "title": "完整英中內容，不只是一小段摘錄",
+    "summary": "這個頁面會每天自動抓取 ArchDaily、Dezeen、Designboom 的新內容，整理成可朗讀、可複習單字的學習頁。",
+    "note": "頁面已支援整篇英文與中文朗讀、單字點讀，以及由每日資料檔自動渲染。部署版會使用 API 生成雙語內容與英文語音，這份是目前倉庫內的示範資料。",
+    "points": [
+      "每篇都有完整英文學習內容",
+      "支援整篇英文與中文朗讀",
+      "每篇 5 個單字加發音與例句"
+    ]
+  },
+  "sourceNote": "原站文章請保留到原媒體閱讀；這個頁面呈現的是適合學習的整理版內容，方便每日閱讀與語言訓練。",
+  "articles": [
+    {
+      "source": "ArchDaily",
+      "sourceClass": "archdaily",
+      "topic": "Projects and Building Reuse",
+      "title": "Perobinha House / PORO Arquitetura",
+      "url": "https://www.archdaily.com/1039896/perobinha-house-poro-arquitetura",
+      "english": [
+        "The house is located on the tranquil Peroba Beach, a fishing village in the Municipality of Icapuí, on the eastern coast of Ceará.",
+        "This ArchDaily piece is useful for learners because it highlights projects and building reuse through a concrete project or case.",
+        "When you read it, pay attention to how the article connects design decisions to daily use, public experience, materials, or urban context."
+      ],
+      "chinese": [
+        "這篇來自 ArchDaily 的文章重點是: The house is located on the tranquil Peroba Beach, a fishing village in the Municipality of Icapuí, on the eastern coast of Ceará.",
+        "把它當成學習材料時，可以把焦點放在 Projects and Building Reuse 相關的設計概念，而不是只看圖片好不好看。",
+        "閱讀時可以特別注意文章怎麼把空間決策、使用者感受、材料表現或城市關係連在一起。"
+      ],
+      "vocabulary": [
+        {
+          "term": "adaptive reuse",
+          "pronunciation": "/əˌdæp.tɪv riːˈjuːs/",
+          "meaning": "舊建築再利用。",
+          "usage": "Usage: You can use adaptive reuse when describing a project's spatial quality."
+        },
+        {
+          "term": "permeability",
+          "pronunciation": "/ˌpɝː.mi.əˈbɪl.ə.ti/",
+          "meaning": "穿透性，指空間是否容易被進入和穿越。",
+          "usage": "Usage: You can use permeability when describing a project's spatial quality."
+        },
+        {
+          "term": "threshold",
+          "pronunciation": "/ˈθreʃ.hoʊld/",
+          "meaning": "門檻、過渡地帶。",
+          "usage": "Usage: You can use threshold when describing a project's spatial quality."
+        },
+        {
+          "term": "civic",
+          "pronunciation": "/ˈsɪv.ɪk/",
+          "meaning": "與市民、公民生活有關的。",
+          "usage": "Usage: You can use civic when describing a project's spatial quality."
+        },
+        {
+          "term": "circulation",
+          "pronunciation": "/ˌsɝː.kjəˈleɪ.ʃən/",
+          "meaning": "動線，人如何在空間中移動。",
+          "usage": "Usage: You can use circulation when describing a project's spatial quality."
+        }
+      ],
+      "audio": {}
+    },
+    {
+      "source": "Dezeen",
+      "sourceClass": "dezeen",
+      "topic": "Architecture and Interiors",
+      "title": "Five Texas tiny houses that \"challenge and reproduce\" the American Dream mythology",
+      "url": "https://www.dezeen.com/2026/03/31/texas-tiny-houses-inside-tiny-house-nation/",
+      "english": [
+        "A recent book focused on the tiny home trend in Texas , theorises what the explosion of micro-domiciles means for contemporary American class politics and economics.",
+        "This Dezeen piece is useful for learners because it highlights architecture and interiors through a concrete project or case.",
+        "When you read it, pay attention to how the article connects design decisions to daily use, public experience, materials, or urban context."
+      ],
+      "chinese": [
+        "這篇來自 Dezeen 的文章重點是: A recent book focused on the tiny home trend in Texas , theorises what the explosion of micro-domiciles means for contemporary American class politics and economics.",
+        "把它當成學習材料時，可以把焦點放在 Architecture and Interiors 相關的設計概念，而不是只看圖片好不好看。",
+        "閱讀時可以特別注意文章怎麼把空間決策、使用者感受、材料表現或城市關係連在一起。"
+      ],
+      "vocabulary": [
+        {
+          "term": "adaptive reuse",
+          "pronunciation": "/əˌdæp.tɪv riːˈjuːs/",
+          "meaning": "舊建築再利用。",
+          "usage": "Usage: You can use adaptive reuse when describing a project's spatial quality."
+        },
+        {
+          "term": "permeability",
+          "pronunciation": "/ˌpɝː.mi.əˈbɪl.ə.ti/",
+          "meaning": "穿透性，指空間是否容易被進入和穿越。",
+          "usage": "Usage: You can use permeability when describing a project's spatial quality."
+        },
+        {
+          "term": "threshold",
+          "pronunciation": "/ˈθreʃ.hoʊld/",
+          "meaning": "門檻、過渡地帶。",
+          "usage": "Usage: You can use threshold when describing a project's spatial quality."
+        },
+        {
+          "term": "civic",
+          "pronunciation": "/ˈsɪv.ɪk/",
+          "meaning": "與市民、公民生活有關的。",
+          "usage": "Usage: You can use civic when describing a project's spatial quality."
+        },
+        {
+          "term": "circulation",
+          "pronunciation": "/ˌsɝː.kjəˈleɪ.ʃən/",
+          "meaning": "動線，人如何在空間中移動。",
+          "usage": "Usage: You can use circulation when describing a project's spatial quality."
+        }
+      ],
+      "audio": {}
+    },
+    {
+      "source": "Designboom",
+      "sourceClass": "designboom",
+      "topic": "Architecture and Urban Experience",
+      "title": "UNS plans new metro line as ‘urban river’ to flow throughout turin, italy",
+      "url": "https://www.designboom.com/architecture/uns-metro-line-urban-river-flow-turin-italy-settanta7/",
+      "english": [
+        "a metro as urban structure in turin UNS ’s vision for Turin’s new Metro Line 2 positions infrastructure as a visible and continuous part of the Italian city.",
+        "This Designboom piece is useful for learners because it highlights architecture and urban experience through a concrete project or case.",
+        "When you read it, pay attention to how the article connects design decisions to daily use, public experience, materials, or urban context."
+      ],
+      "chinese": [
+        "這篇來自 Designboom 的文章重點是: a metro as urban structure in turin UNS ’s vision for Turin’s new Metro Line 2 positions infrastructure as a visible and continuous part of the Italian city.",
+        "把它當成學習材料時，可以把焦點放在 Architecture and Urban Experience 相關的設計概念，而不是只看圖片好不好看。",
+        "閱讀時可以特別注意文章怎麼把空間決策、使用者感受、材料表現或城市關係連在一起。"
+      ],
+      "vocabulary": [
+        {
+          "term": "circulation",
+          "pronunciation": "/ˌsɝː.kjəˈleɪ.ʃən/",
+          "meaning": "動線，人如何在空間中移動。",
+          "usage": "Usage: Circulation appears here as a useful concept for describing the project."
+        },
+        {
+          "term": "atmosphere",
+          "pronunciation": "/ˈæt.mə.sfɪr/",
+          "meaning": "空間氛圍。",
+          "usage": "Usage: Atmosphere appears here as a useful concept for describing the project."
+        },
+        {
+          "term": "texture",
+          "pronunciation": "/ˈteks.tʃɚ/",
+          "meaning": "材質肌理、表面觸感。",
+          "usage": "Usage: Texture appears here as a useful concept for describing the project."
+        },
+        {
+          "term": "pedestrian",
+          "pronunciation": "/pəˈdes.tri.ən/",
+          "meaning": "步行者，行人。",
+          "usage": "Usage: Pedestrian appears here as a useful concept for describing the project."
+        },
+        {
+          "term": "facade",
+          "pronunciation": "/fəˈsɑːd/",
+          "meaning": "建築立面。",
+          "usage": "Usage: Facade appears here as a useful concept for describing the project."
+        }
+      ],
+      "audio": {}
+    }
+  ],
+  "prompts": [
+    {
+      "title": "如果這個案子蓋在你家附近，你會想常常經過它嗎？",
+      "description": "試著從「Perobinha House / PORO Arquitetura」帶給人的第一印象去想，它是親切、壓迫，還是有點距離感？"
+    },
+    {
+      "title": "如果你要帶朋友去看這個案子，你會先介紹哪一個地方？",
+      "description": "這題能幫你找到自己最在意的是入口、材料、光線，還是空間怎麼被使用。"
+    },
+    {
+      "title": "這個設計是真的讓生活更方便，還是只是看起來很厲害？",
+      "description": "你可以想想一般人每天走過、停留、使用時，會不會真的感受到它的好。"
+    }
+  ]
+};

@@ -1,0 +1,20 @@
+.DS_Store
+__pycache__/
+.pytest_cache/
+.venv/
+.venv-chattts/
+asset/
+models/
+
+# Local experiments
+compare-tts.html
+generate_chattts_audio.py
+test_chattts.py
+audio/chattts-preview.wav
+audio/piper-preview.wav
+audio/*/*.wav
+audio/*/*.m4a
+
+# macOS / editor noise
+*.swp
+*.swo

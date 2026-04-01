@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spatial Briefing | 每日建築英中閱讀</title>
+    <meta
+      name="description"
+      content="每日整理 ArchDaily、Dezeen、Designboom 建築內容，提供完整英中教學版文章、發音、單字與生活化思考題。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Daily Architecture Reading</p>
+          <h1>每天讀完整一點，英文就會長進快一點。</h1>
+          <p class="hero-text" id="hero-summary"></p>
+          <div class="hero-actions">
+            <a class="button primary" href="#reading-desk">看今日三篇</a>
+            <a class="button secondary" href="#easy-prompts">看生活化提問</a>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <p class="panel-label">Learning Format</p>
+          <h2 id="hero-title"></h2>
+          <ul class="focus-list" id="hero-points"></ul>
+          <p class="hero-note" id="hero-note"></p>
+        </aside>
+      </header>
+
+      <main>
+        <section class="overview-grid" aria-label="學習方式">
+          <article class="overview-card">
+            <p class="card-kicker">完整閱讀</p>
+            <h3>先讀英文，再對照中文</h3>
+            <p>每篇內容都拉成完整段落，讓你有連續閱讀感，不會被切成太碎的小卡片。</p>
+          </article>
+          <article class="overview-card">
+            <p class="card-kicker">語感建立</p>
+            <h3>把專業字看懂，也聽得出來</h3>
+            <p>每個單字都附上 IPA 發音、中文解釋與設計語境例句，幫你更快內化。</p>
+          </article>
+          <article class="overview-card">
+            <p class="card-kicker">思辨入門</p>
+            <h3>從生活感受切進設計判斷</h3>
+            <p>提問先從你會遇到的街道、商店、圖書館、住宅經驗出發，降低進入門檻。</p>
+          </article>
+        </section>
+
+        <section id="reading-desk" class="section-heading">
+          <div>
+            <p class="eyebrow">Today&apos;s Reading Desk</p>
+            <h2>今日三篇完整學習版文章</h2>
+          </div>
+          <div class="reading-toolbar">
+            <label class="model-picker" for="english-model-select">
+              <span>English Voice</span>
+              <select id="english-model-select"></select>
+            </label>
+            <p class="section-note" id="today-date"></p>
+          </div>
+        </section>
+
+        <section class="copyright-note">
+          <p id="source-note"></p>
+        </section>
+
+        <section class="article-stack" id="article-stack"></section>
+
+        <section id="easy-prompts" class="thinking-lab">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow">Easy Thinking Prompts</p>
+              <h2>更淺白、生活化的思考題</h2>
+            </div>
+            <p class="section-note">先從「你自己的感受」開始，再慢慢變成設計判斷。</p>
+          </div>
+
+          <div class="question-list" id="question-list"></div>
+        </section>
+
+        <section class="workflow-panel">
+          <div>
+            <p class="eyebrow">Daily Method</p>
+            <h2>你每天可以這樣使用</h2>
+          </div>
+          <div class="workflow-steps">
+            <div>
+              <span>01</span>
+              <p>先選一篇英文完整讀完，不急著查每個字。</p>
+            </div>
+            <div>
+              <span>02</span>
+              <p>再看中文翻譯，確認自己剛剛抓到的意思對不對。</p>
+            </div>
+            <div>
+              <span>03</span>
+              <p>記下那篇的 5 個單字，順便點一下聽發音。</p>
+            </div>
+            <div>
+              <span>04</span>
+              <p>回答一題生活化提問，把建築閱讀和自己的經驗接起來。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="thinking-lab">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow">Archive</p>
+              <h2>過去每天的內容都有存下來</h2>
+            </div>
+            <p class="section-note">部署到 GitHub Pages 後，這裡會列出每日快照。</p>
+          </div>
+          <div class="question-list" id="archive-list">
+            <article class="question-card">
+              <span class="question-tag">Saved Daily</span>
+              <h3>準備中</h3>
+              <p>生成器會把每天資料存成 JSON，這裡會自動列出可回看的日期。</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./daily-content.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
