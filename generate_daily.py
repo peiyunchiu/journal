@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import datetime as dt
+import hashlib
 import html
 import json
 import os
@@ -417,6 +418,10 @@ def slugify(value: str) -> str:
     return slug.strip("-") or "article"
 
 
+def stable_hash(value: str, length: int = 10) -> str:
+    return hashlib.sha1(value.encode("utf-8")).hexdigest()[:length]
+
+
 def split_for_tts(text: str, max_chars: int = 3800) -> list:
     sentences = re.split(r"(?<=[.!?。！？])\s+", text.strip())
     chunks = []
@@ -486,6 +491,7 @@ def generate_api_audio_variants(article: dict, article_slug: str, payload_date: 
     text = " ".join(article["english"]).strip()
     if not text:
         return {}
+    text_hash = stable_hash(text)
 
     voices = [
         ("marin", "Marin"),
@@ -500,7 +506,7 @@ def generate_api_audio_variants(article: dict, article_slug: str, payload_date: 
     for voice_key, _label in voices:
         paths = []
         for index, chunk in enumerate(split_for_tts(text)):
-            file_path = target_dir / f"{article_slug}-english-{voice_key}-{index + 1}.mp3"
+            file_path = target_dir / f"{article_slug}-english-{voice_key}-{text_hash}-{index + 1}.mp3"
             if not file_path.exists():
                 audio_bytes = post_json(
                     OPENAI_API_URL,
@@ -518,6 +524,45 @@ def generate_api_audio_variants(article: dict, article_slug: str, payload_date: 
         audio_map["english_models"][voice_key] = paths
 
     return audio_map
+
+
+def generate_vocabulary_audio_variants(article: dict, article_slug: str, payload_date: str) -> None:
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is required")
+
+    target_dir = AUDIO_DIR / payload_date
+    target_dir.mkdir(parents=True, exist_ok=True)
+    voices = ["marin", "alloy"]
+
+    for item in article.get("vocabulary", []):
+        term = item.get("term", "").strip()
+        if not term:
+            continue
+
+        term_slug = slugify(term)
+        term_hash = stable_hash(term)
+        item.setdefault("audio", {"models": {}})
+
+        for voice_key in voices:
+            file_path = target_dir / f"{article_slug}-term-{term_slug}-{voice_key}-{term_hash}.mp3"
+            if not file_path.exists():
+                audio_bytes = post_json(
+                    OPENAI_API_URL,
+                    {
+                        "model": os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts"),
+                        "voice": voice_key,
+                        "input": term,
+                        "instructions": (
+                            "Pronounce this English architecture term clearly and naturally for a learner. "
+                            "Only say the term once."
+                        ),
+                        "response_format": "mp3",
+                    },
+                    api_key,
+                )
+                file_path.write_bytes(audio_bytes)
+            item["audio"]["models"][voice_key] = [f"./audio/{payload_date}/{file_path.name}"]
 
 
 def parse_article(source: dict, article_url: str) -> dict:
@@ -736,6 +781,7 @@ def build_payload() -> dict:
         try:
             article_slug = slugify(article["title"])
             article["audio"] = generate_api_audio_variants(article, article_slug, payload["date"])
+            generate_vocabulary_audio_variants(article, article_slug, payload["date"])
         except Exception as error:  # noqa: BLE001
             tts_failures.append(f"{article['source']}: {error}")
             article["audio"] = {}

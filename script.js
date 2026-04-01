@@ -119,6 +119,17 @@ function getEnglishAudioUrls(article) {
   );
 }
 
+function getVocabularyAudioUrls(item) {
+  const models = item.audio?.models || {};
+  return (
+    models[state.selectedEnglishModel] ||
+    models[dailyContent.settings?.defaultEnglishVoice || "marin"] ||
+    models.marin ||
+    models.alloy ||
+    []
+  );
+}
+
 function renderHero() {
   const hero = dailyContent.hero || fallbackContent.hero;
   document.querySelector("#hero-title").textContent = hero.title;
@@ -201,11 +212,17 @@ function renderArticles() {
             <div class="vocab-grid article-vocab">
               ${(article.vocabulary || [])
                 .map(
-                  (item) => `
+                  (item, itemIndex) => `
                     <article class="vocab-card">
                       <div class="term-row">
                         <p class="term">${escapeHtml(item.term)}</p>
-                        <button class="term-audio" type="button" data-term="${escapeHtml(item.term)}">念</button>
+                        <button
+                          class="term-audio"
+                          type="button"
+                          data-term="${escapeHtml(item.term)}"
+                          data-article-index="${articleIndex}"
+                          data-vocab-index="${itemIndex}"
+                        >念</button>
                       </div>
                       <p class="pronunciation">${escapeHtml(item.pronunciation || "")}</p>
                       <p class="meaning">${escapeHtml(item.meaning || "")}</p>
@@ -297,6 +314,14 @@ function registerSpeechEvents() {
 
     if (button.dataset.term) {
       stopAudioPlayback();
+      const articleIndex = Number(button.dataset.articleIndex);
+      const vocabIndex = Number(button.dataset.vocabIndex);
+      const item = dailyContent.articles?.[articleIndex]?.vocabulary?.[vocabIndex];
+      const vocabularyAudio = item ? getVocabularyAudioUrls(item) : [];
+      if (vocabularyAudio.length) {
+        playAudioQueue(vocabularyAudio);
+        return;
+      }
       speakText(button.dataset.term, "en-US");
       return;
     }
