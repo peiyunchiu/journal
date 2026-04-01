@@ -2,6 +2,12 @@ name: Daily Update
 
 on:
   workflow_dispatch:
+    inputs:
+      force_regenerate:
+        description: "Regenerate today's content instead of reusing the saved snapshot"
+        required: false
+        default: false
+        type: boolean
   schedule:
     - cron: "10 16 * * *"
 
@@ -34,6 +40,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_TEXT_MODEL: gpt-4o-mini
           OPENAI_TTS_MODEL: gpt-4o-mini-tts
+          FORCE_REGENERATE: ${{ inputs.force_regenerate && '1' || '0' }}
         run: python3 generate_daily.py
 
       - name: Ensure Pages metadata

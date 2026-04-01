@@ -23,9 +23,10 @@ const state = {
   audioPlayer: null,
   audioQueue: [],
   selectedEnglishModel: "marin",
+  content: window.DAILY_CONTENT || fallbackContent,
+  archiveDates: [],
+  selectedDate: null,
 };
-
-const dailyContent = window.DAILY_CONTENT || fallbackContent;
 
 function escapeHtml(value) {
   return String(value)
@@ -111,7 +112,7 @@ function getEnglishAudioUrls(article) {
   const models = article.audio?.english_models || {};
   return (
     models[state.selectedEnglishModel] ||
-    models[dailyContent.settings?.defaultEnglishVoice || "marin"] ||
+    models[state.content.settings?.defaultEnglishVoice || "marin"] ||
     models.marin ||
     models.alloy ||
     article.audio?.english ||
@@ -123,7 +124,7 @@ function getVocabularyAudioUrls(item) {
   const models = item.audio?.models || {};
   return (
     models[state.selectedEnglishModel] ||
-    models[dailyContent.settings?.defaultEnglishVoice || "marin"] ||
+    models[state.content.settings?.defaultEnglishVoice || "marin"] ||
     models.marin ||
     models.alloy ||
     []
@@ -131,7 +132,7 @@ function getVocabularyAudioUrls(item) {
 }
 
 function renderHero() {
-  const hero = dailyContent.hero || fallbackContent.hero;
+  const hero = state.content.hero || fallbackContent.hero;
   document.querySelector("#hero-title").textContent = hero.title;
   document.querySelector("#hero-summary").textContent = hero.summary;
   document.querySelector("#hero-note").textContent = hero.note;
@@ -142,7 +143,7 @@ function renderHero() {
 
 function renderDate() {
   const node = document.querySelector("#today-date");
-  const sourceDate = dailyContent.date ? new Date(`${dailyContent.date}T09:00:00`) : new Date();
+  const sourceDate = state.content.date ? new Date(`${state.content.date}T09:00:00`) : new Date();
   const formatter = new Intl.DateTimeFormat("zh-Hant-TW", {
     year: "numeric",
     month: "long",
@@ -150,15 +151,22 @@ function renderDate() {
     weekday: "long",
   });
   node.textContent = `更新日期 ${formatter.format(sourceDate)}`;
+
+  const noteNode = document.querySelector("#archive-mode-note");
+  if (!noteNode) return;
+  const isArchiveView = state.selectedDate && state.selectedDate !== window.DAILY_CONTENT?.date;
+  noteNode.textContent = isArchiveView
+    ? `你目前正在回看 ${state.selectedDate} 的完整快照。`
+    : "這裡顯示的是目前選擇日期的完整學習內容。";
 }
 
 function renderSourceNote() {
-  document.querySelector("#source-note").textContent = dailyContent.sourceNote || fallbackContent.sourceNote;
+  document.querySelector("#source-note").textContent = state.content.sourceNote || fallbackContent.sourceNote;
 }
 
 function renderArticles() {
   const stack = document.querySelector("#article-stack");
-  if (!dailyContent.articles?.length) {
+  if (!state.content.articles?.length) {
     stack.innerHTML = `
       <article class="story-card">
         <h3>目前還沒有生成今日文章</h3>
@@ -168,7 +176,7 @@ function renderArticles() {
     return;
   }
 
-  stack.innerHTML = dailyContent.articles
+  stack.innerHTML = state.content.articles
     .map(
       (article, articleIndex) => `
         <article class="story-card">
@@ -241,7 +249,7 @@ function renderArticles() {
 
 function renderPrompts() {
   const prompts = document.querySelector("#question-list");
-  prompts.innerHTML = (dailyContent.prompts || [])
+  prompts.innerHTML = (state.content.prompts || [])
     .map(
       (prompt, index) => `
         <article class="question-card">
@@ -254,30 +262,10 @@ function renderPrompts() {
     .join("");
 }
 
-async function renderArchive() {
+function renderArchive() {
   const archiveNode = document.querySelector("#archive-list");
   if (!archiveNode) return;
-
-  try {
-    const response = await fetch("./archive/index.json", { cache: "no-store" });
-    if (!response.ok) throw new Error("archive index unavailable");
-    const dates = await response.json();
-    if (!Array.isArray(dates) || !dates.length) throw new Error("empty archive");
-
-    archiveNode.innerHTML = dates
-      .slice(0, 14)
-      .map(
-        (date, index) => `
-          <article class="question-card">
-            <span class="question-tag">Day ${String(index + 1).padStart(2, "0")}</span>
-            <h3>${escapeHtml(date)}</h3>
-            <p>查看這一天自動保存的內容快照。</p>
-            <a class="story-link" href="./archive/${encodeURIComponent(date)}.json" target="_blank" rel="noreferrer">打開 JSON</a>
-          </article>
-        `
-      )
-      .join("");
-  } catch (_error) {
+  if (!state.archiveDates.length) {
     archiveNode.innerHTML = `
       <article class="question-card">
         <span class="question-tag">Saved Daily</span>
@@ -285,17 +273,32 @@ async function renderArchive() {
         <p>第一次部署並成功跑完每日生成器後，這裡就會自動列出每日快照。</p>
       </article>
     `;
+    return;
   }
+
+  archiveNode.innerHTML = state.archiveDates
+    .slice(0, 21)
+    .map(
+      (date, index) => `
+        <article class="question-card">
+          <span class="question-tag">${date === state.content.date ? "Current" : `Day ${String(index + 1).padStart(2, "0")}`}</span>
+          <h3>${escapeHtml(date)}</h3>
+          <p>${date === state.content.date ? "你目前正在看這一天的完整內容。" : "點進去直接載入這一天的完整文章、翻譯、單字與音檔。"}</p>
+          <a class="story-link" href="?date=${encodeURIComponent(date)}#reading-desk">閱讀這一天</a>
+        </article>
+      `
+    )
+    .join("");
 }
 
 function setupModelSelector() {
   const select = document.querySelector("#english-model-select");
   if (!select) return;
-  const options = dailyContent.settings?.englishVoiceOptions || [
+  const options = state.content.settings?.englishVoiceOptions || [
     { key: "marin", label: "Marin (Default)" },
     { key: "alloy", label: "Alloy" },
   ];
-  state.selectedEnglishModel = dailyContent.settings?.defaultEnglishVoice || options[0]?.key || "marin";
+  state.selectedEnglishModel = state.content.settings?.defaultEnglishVoice || options[0]?.key || "marin";
   select.innerHTML = options
     .map((option) => `<option value="${escapeHtml(option.key)}">${escapeHtml(option.label)}</option>`)
     .join("");
@@ -316,7 +319,7 @@ function registerSpeechEvents() {
       stopAudioPlayback();
       const articleIndex = Number(button.dataset.articleIndex);
       const vocabIndex = Number(button.dataset.vocabIndex);
-      const item = dailyContent.articles?.[articleIndex]?.vocabulary?.[vocabIndex];
+      const item = state.content.articles?.[articleIndex]?.vocabulary?.[vocabIndex];
       const vocabularyAudio = item ? getVocabularyAudioUrls(item) : [];
       if (vocabularyAudio.length) {
         playAudioQueue(vocabularyAudio);
@@ -334,7 +337,7 @@ function registerSpeechEvents() {
     }
 
     const articleIndex = Number(button.dataset.articleIndex);
-    const article = dailyContent.articles?.[articleIndex];
+    const article = state.content.articles?.[articleIndex];
     if (!article) return;
 
     if (type === "english") {
@@ -362,16 +365,51 @@ function loadVoices() {
   state.voices = window.speechSynthesis.getVoices();
 }
 
-renderHero();
-renderDate();
-renderSourceNote();
-renderArticles();
-renderPrompts();
-setupModelSelector();
-registerSpeechEvents();
-loadVoices();
-renderArchive();
-
-if ("speechSynthesis" in window) {
-  window.speechSynthesis.onvoiceschanged = loadVoices;
+function renderApp() {
+  renderHero();
+  renderDate();
+  renderSourceNote();
+  renderArticles();
+  renderPrompts();
+  renderArchive();
+  setupModelSelector();
 }
+
+async function fetchArchiveDates() {
+  try {
+    const response = await fetch("./archive/index.json", { cache: "no-store" });
+    if (!response.ok) throw new Error("archive index unavailable");
+    const dates = await response.json();
+    state.archiveDates = Array.isArray(dates) ? dates : [];
+  } catch (_error) {
+    state.archiveDates = state.content.date ? [state.content.date] : [];
+  }
+}
+
+async function maybeLoadSelectedDate() {
+  const params = new URLSearchParams(window.location.search);
+  const requestedDate = params.get("date");
+  state.selectedDate = requestedDate || state.content.date || null;
+  if (!requestedDate || requestedDate === window.DAILY_CONTENT?.date) return;
+
+  try {
+    const response = await fetch(`./archive/${encodeURIComponent(requestedDate)}.json`, { cache: "no-store" });
+    if (!response.ok) throw new Error("archive day unavailable");
+    state.content = await response.json();
+  } catch (_error) {
+    state.content = window.DAILY_CONTENT || fallbackContent;
+    state.selectedDate = state.content.date || null;
+  }
+}
+
+async function init() {
+  await Promise.all([fetchArchiveDates(), maybeLoadSelectedDate()]);
+  renderApp();
+  registerSpeechEvents();
+  loadVoices();
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  }
+}
+
+init();
