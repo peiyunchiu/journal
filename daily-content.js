@@ -15,11 +15,11 @@ window.DAILY_CONTENT = {
   },
   "hero": {
     "title": "完整英中內容，不只是一小段摘錄",
-    "summary": "這個頁面會每天自動抓取 ArchDaily、Dezeen、Designboom 的新內容，整理成可朗讀、可複習單字的學習頁。",
-    "note": "頁面已支援整篇英文與中文朗讀、單字點讀，以及由每日資料檔自動渲染。部署版會使用 API 生成雙語內容與英文語音，這份是目前倉庫內的示範資料。",
+    "summary": "這個頁面會每天自動抓取 ArchDaily、Dezeen、Designboom 的新內容，並透過 API 生成雙語學習內容、專業字彙和英文語音。",
+    "note": "頁面已支援整篇英文與中文朗讀、單字點讀，以及由每日資料檔自動渲染。 三篇英文都已生成兩種 API 語音，預設使用 Marin。",
     "points": [
-      "每篇都有完整英文學習內容",
-      "支援整篇英文與中文朗讀",
+      "每篇都有 API 生成的完整英文學習內容",
+      "三篇都支援兩種 API 英文語音切換",
       "每篇 5 個單字加發音與例句"
     ]
   },
@@ -28,166 +28,193 @@ window.DAILY_CONTENT = {
     {
       "source": "ArchDaily",
       "sourceClass": "archdaily",
-      "topic": "Projects and Building Reuse",
-      "title": "Perobinha House / PORO Arquitetura",
-      "url": "https://www.archdaily.com/1039896/perobinha-house-poro-arquitetura",
+      "topic": "Apartment Transformation in Architecture",
+      "title": "Apartment A / heros",
+      "url": "https://www.archdaily.com/1040127/apartment-a",
       "english": [
-        "The house is located on the tranquil Peroba Beach, a fishing village in the Municipality of Icapuí, on the eastern coast of Ceará.",
-        "This ArchDaily piece is useful for learners because it highlights projects and building reuse through a concrete project or case.",
-        "When you read it, pay attention to how the article connects design decisions to daily use, public experience, materials, or urban context."
+        "Completed in 2023, Apartment A exemplifies a modern transformation within a 1970s building in Paris. This renovation showcases innovative design principles that elevate the living experience by utilizing vertical space.",
+        "The duplex apartment features an open layout that enhances natural light and connectivity between spaces. By reconfiguring the interior, the designers created a harmonious blend of modern aesthetics and functional living.",
+        "This project illustrates the potential of adapting older structures for contemporary needs, highlighting the importance of sustainability in urban environments. Such transformations not only preserve history but also inject new life into the architecture."
       ],
       "chinese": [
-        "這篇來自 ArchDaily 的文章重點是: The house is located on the tranquil Peroba Beach, a fishing village in the Municipality of Icapuí, on the eastern coast of Ceará.",
-        "把它當成學習材料時，可以把焦點放在 Projects and Building Reuse 相關的設計概念，而不是只看圖片好不好看。",
-        "閱讀時可以特別注意文章怎麼把空間決策、使用者感受、材料表現或城市關係連在一起。"
+        "2023年完工的A公寓展示了巴黎一座1970年代大樓內部的現代轉變。這次翻新展現了創新的設計原則，透過利用垂直空間提升居住體驗。",
+        "這個雙層公寓擁有開放式布局，增強了自然光線和空間之間的連通性。設計師通過重新配置內部結構，創造了現代美學和實用生活的和諧融合。",
+        "這個項目展現了老建築適應當代需求的潛力，突顯了在城市環境中可持續性的重要性。這樣的轉變不僅保留了歷史，還為建築注入了新的生命。"
       ],
       "vocabulary": [
         {
+          "term": "renovation",
+          "pronunciation": "/ˌrɛnəˈveɪʃən/",
+          "meaning": "the process of improving a broken, damaged, or outdated structure.",
+          "usage": "The renovation of the apartment included modern fixtures and open spaces."
+        },
+        {
+          "term": "duplex",
+          "pronunciation": "/ˈduːplɛks/",
+          "meaning": "a type of housing that consists of two connected units sharing a common wall.",
+          "usage": "The duplex design allows for both privacy and shared living areas."
+        },
+        {
+          "term": "aesthetics",
+          "pronunciation": "/ɛsˈθɛtɪks/",
+          "meaning": "a set of principles concerned with the nature and appreciation of beauty in design.",
+          "usage": "The aesthetics of the apartment focus on minimalism and simplicity."
+        },
+        {
+          "term": "sustainability",
+          "pronunciation": "/səˌsteɪnəˈbɪlɪti/",
+          "meaning": "the ability to be maintained at a certain rate or level, especially in relation to ecological balance.",
+          "usage": "Sustainability is a key component of modern architecture, integrating green technologies."
+        },
+        {
           "term": "adaptive reuse",
-          "pronunciation": "/əˌdæp.tɪv riːˈjuːs/",
-          "meaning": "舊建築再利用。",
-          "usage": "Usage: You can use adaptive reuse when describing a project's spatial quality."
-        },
-        {
-          "term": "permeability",
-          "pronunciation": "/ˌpɝː.mi.əˈbɪl.ə.ti/",
-          "meaning": "穿透性，指空間是否容易被進入和穿越。",
-          "usage": "Usage: You can use permeability when describing a project's spatial quality."
-        },
-        {
-          "term": "threshold",
-          "pronunciation": "/ˈθreʃ.hoʊld/",
-          "meaning": "門檻、過渡地帶。",
-          "usage": "Usage: You can use threshold when describing a project's spatial quality."
-        },
-        {
-          "term": "civic",
-          "pronunciation": "/ˈsɪv.ɪk/",
-          "meaning": "與市民、公民生活有關的。",
-          "usage": "Usage: You can use civic when describing a project's spatial quality."
-        },
-        {
-          "term": "circulation",
-          "pronunciation": "/ˌsɝː.kjəˈleɪ.ʃən/",
-          "meaning": "動線，人如何在空間中移動。",
-          "usage": "Usage: You can use circulation when describing a project's spatial quality."
+          "pronunciation": "/əˈdæptɪv ˈriːjuːs/",
+          "meaning": "the process of reusing an old building for a purpose other than what it was originally designed for.",
+          "usage": "Adaptive reuse projects can revitalize neighborhoods while preserving architectural heritage."
         }
       ],
-      "audio": {}
+      "audio": {
+        "english_models": {
+          "marin": [
+            "./audio/2026-04-01/apartment-a-heros-english-marin-1.mp3"
+          ],
+          "alloy": [
+            "./audio/2026-04-01/apartment-a-heros-english-alloy-1.mp3"
+          ]
+        }
+      }
     },
     {
       "source": "Dezeen",
       "sourceClass": "dezeen",
-      "topic": "Architecture and Interiors",
-      "title": "Five Texas tiny houses that \"challenge and reproduce\" the American Dream mythology",
-      "url": "https://www.dezeen.com/2026/03/31/texas-tiny-houses-inside-tiny-house-nation/",
+      "topic": "Contemporary Latvian Architecture",
+      "title": "OAD tops barn-like summer home with thatch roof",
+      "url": "https://www.dezeen.com/2026/04/01/thatch-holiday-home-latvia-oad-bprom/",
       "english": [
-        "A recent book focused on the tiny home trend in Texas , theorises what the explosion of micro-domiciles means for contemporary American class politics and economics.",
-        "This Dezeen piece is useful for learners because it highlights architecture and interiors through a concrete project or case.",
-        "When you read it, pay attention to how the article connects design decisions to daily use, public experience, materials, or urban context."
+        "OAD has designed a striking summer home in Riga, Latvia, characterized by its charred timber exterior and thatched roof, which draws inspiration from traditional Latvian architecture. This 641-square-metre residence includes a two-bedroom space and an annexe with a sauna and guest suite, reflecting a modern interpretation of local cultural elements.",
+        "The interior features a vibrant palette of blues and purples that echo the hues of nearby dragonflies, creating a thoughtful connection to nature. With a design that prioritizes local craftsmanship, the space uses forgotten materials to shape a contemporary yet culturally resonant structure.",
+        "The home’s layout is designed for comfort, providing sheltered outdoor space while ensuring that both private and communal areas are organized to enhance livability. The incorporation of natural light and a harmonious flow between the indoor and outdoor areas exemplifies modern architectural principles."
       ],
       "chinese": [
-        "這篇來自 Dezeen 的文章重點是: A recent book focused on the tiny home trend in Texas , theorises what the explosion of micro-domiciles means for contemporary American class politics and economics.",
-        "把它當成學習材料時，可以把焦點放在 Architecture and Interiors 相關的設計概念，而不是只看圖片好不好看。",
-        "閱讀時可以特別注意文章怎麼把空間決策、使用者感受、材料表現或城市關係連在一起。"
+        "OAD在拉脫維亞里加設計了一座引人注目的度假住宅，其特徵是炭化木材外牆和茅草屋頂，靈感來自傳統拉脫維亞建築。這座641平方米的住宅包括兩間臥室和一個擁有桑拿和客房的小屋，反映出當代對當地文化元素的現代詮釋。",
+        "室內的藍色和紫色生動調色板呼應附近蜻蜓的色調，創造出與自然的深刻聯繫。這個設計優先考慮當地工藝，使用被遺忘的材料來塑造一個既現代又具有文化共鳴的結構。",
+        "該住宅的佈局旨在提供舒適感，為戶外空間提供庇護，同時確保私人和公共區域組織良好，以增強居住性。自然光的運用和室內外空間之間的和諧流動展現了現代建築原則的典範。"
       ],
       "vocabulary": [
         {
-          "term": "adaptive reuse",
-          "pronunciation": "/əˌdæp.tɪv riːˈjuːs/",
-          "meaning": "舊建築再利用。",
-          "usage": "Usage: You can use adaptive reuse when describing a project's spatial quality."
+          "term": "thatched",
+          "pronunciation": "/θætʃt/",
+          "meaning": "covered with a roof made of straw or reeds.",
+          "usage": "The thatched roof gave the house a traditional appearance."
         },
         {
-          "term": "permeability",
-          "pronunciation": "/ˌpɝː.mi.əˈbɪl.ə.ti/",
-          "meaning": "穿透性，指空間是否容易被進入和穿越。",
-          "usage": "Usage: You can use permeability when describing a project's spatial quality."
+          "term": "charred",
+          "pronunciation": "/tʃɑːrd/",
+          "meaning": "burned and blackened by fire.",
+          "usage": "The charred timber exterior adds a rustic charm to the building."
         },
         {
-          "term": "threshold",
-          "pronunciation": "/ˈθreʃ.hoʊld/",
-          "meaning": "門檻、過渡地帶。",
-          "usage": "Usage: You can use threshold when describing a project's spatial quality."
+          "term": "annex",
+          "pronunciation": "/ˈænɛks/",
+          "meaning": "a separate building that is joined to a main building.",
+          "usage": "The guest suite is located in an annex behind the main house."
         },
         {
-          "term": "civic",
-          "pronunciation": "/ˈsɪv.ɪk/",
-          "meaning": "與市民、公民生活有關的。",
-          "usage": "Usage: You can use civic when describing a project's spatial quality."
+          "term": "palette",
+          "pronunciation": "/ˈpælɪt/",
+          "meaning": "a range of colors used in a particular context or piece of work.",
+          "usage": "The artist chose a vibrant palette of reds and yellows."
         },
         {
-          "term": "circulation",
-          "pronunciation": "/ˌsɝː.kjəˈleɪ.ʃən/",
-          "meaning": "動線，人如何在空間中移動。",
-          "usage": "Usage: You can use circulation when describing a project's spatial quality."
+          "term": "craftsmanship",
+          "pronunciation": "/ˈkræftsˌmænʃɪp/",
+          "meaning": "skill in a particular craft or trade.",
+          "usage": "The craftsmanship of the furniture was evident in its intricate designs."
         }
       ],
-      "audio": {}
+      "audio": {
+        "english_models": {
+          "marin": [
+            "./audio/2026-04-01/oad-tops-barn-like-summer-home-with-thatch-roof-english-marin-1.mp3"
+          ],
+          "alloy": [
+            "./audio/2026-04-01/oad-tops-barn-like-summer-home-with-thatch-roof-english-alloy-1.mp3"
+          ]
+        }
+      }
     },
     {
       "source": "Designboom",
       "sourceClass": "designboom",
-      "topic": "Architecture and Urban Experience",
-      "title": "UNS plans new metro line as ‘urban river’ to flow throughout turin, italy",
-      "url": "https://www.designboom.com/architecture/uns-metro-line-urban-river-flow-turin-italy-settanta7/",
+      "topic": "Floating Cinema Stage in the Peruvian Amazon",
+      "title": "as waters rise in the peruvian amazon, espacio común’s cinema stage gathers a city afloat",
+      "url": "https://www.designboom.com/architecture/waters-peruvian-amazon-espacio-comun-cinema-stage-city-afloat-muyunafest/",
       "english": [
-        "a metro as urban structure in turin UNS ’s vision for Turin’s new Metro Line 2 positions infrastructure as a visible and continuous part of the Italian city.",
-        "This Designboom piece is useful for learners because it highlights architecture and urban experience through a concrete project or case.",
-        "When you read it, pay attention to how the article connects design decisions to daily use, public experience, materials, or urban context."
+        "In Belén, Peru, a unique floating cinema emerges amidst the seasonal flooding of the Itaya River. Developed by the Espacio Común Association, this structure functions as a communal space, fostering cultural activities and collective life in the Amazon. Its design draws inspiration from local cosmology, specifically the muyuna, representing connections between different worlds.",
+        "The MuyunaFest, evolving from this innovative context, has become a vital platform for showcasing films and training local communities in audiovisual skills. The floating arena, combining traditional boat-building techniques with modern design principles, adapts seamlessly to the shifting waters, ensuring that the space remains accessible during varied water levels.",
+        "After the festival, the floating stage continues to serve multiple roles within the community. It transforms into an open classroom and gathering space, promoting ongoing cultural practices. Its materials are repurposed for local needs, contributing to the resilience and creativity of the Belén community."
       ],
       "chinese": [
-        "這篇來自 Designboom 的文章重點是: a metro as urban structure in turin UNS ’s vision for Turin’s new Metro Line 2 positions infrastructure as a visible and continuous part of the Italian city.",
-        "把它當成學習材料時，可以把焦點放在 Architecture and Urban Experience 相關的設計概念，而不是只看圖片好不好看。",
-        "閱讀時可以特別注意文章怎麼把空間決策、使用者感受、材料表現或城市關係連在一起。"
+        "在秘魯的貝倫，一個獨特的浮動電影院在伊塔亞河的季節性洪水中浮現。由Espacio Común協會開發，這個結構作為一個社區空間，促進亞馬遜地區的文化活動和集體生活。它的設計靈感源自當地的宇宙觀，尤其是muyuna，代表著不同世界之間的連結。",
+        "MuyunaFest從這一創新背景中演變而來，已成為展示電影和培訓當地社區視聽技能的重要平台。這個浮動舞台結合了傳統造船技術和現代設計原則，能夠隨著水位的變化無縫適應，確保空間在不同水位時仍然可達。",
+        "在節日過後，這個浮動舞台繼續在社區內發揮多重角色。它轉變為一個開放的教室和聚會空間，促進持續的文化實踐。其材料被重新利用以滿足當地需求，增強了貝倫社區的韌性和創造力。"
       ],
       "vocabulary": [
         {
-          "term": "circulation",
-          "pronunciation": "/ˌsɝː.kjəˈleɪ.ʃən/",
-          "meaning": "動線，人如何在空間中移動。",
-          "usage": "Usage: Circulation appears here as a useful concept for describing the project."
+          "term": "amphibious",
+          "pronunciation": "/æmˈfɪb.i.əs/",
+          "meaning": "capable of operating both on land and water.",
+          "usage": "The project is situated in an amphibious environment, adapting to seasonal changes."
         },
         {
-          "term": "atmosphere",
-          "pronunciation": "/ˈæt.mə.sfɪr/",
-          "meaning": "空間氛圍。",
-          "usage": "Usage: Atmosphere appears here as a useful concept for describing the project."
+          "term": "collective",
+          "pronunciation": "/kəˈlɛk.tɪv/",
+          "meaning": "done by people acting as a group.",
+          "usage": "The floating cinema serves as a collective space for the community."
         },
         {
-          "term": "texture",
-          "pronunciation": "/ˈteks.tʃɚ/",
-          "meaning": "材質肌理、表面觸感。",
-          "usage": "Usage: Texture appears here as a useful concept for describing the project."
+          "term": "cosmology",
+          "pronunciation": "/kɒzˈmɒl.ə.dʒi/",
+          "meaning": "the science of the origin and development of the universe.",
+          "usage": "The design reflects Kukama cosmology, linking cultural beliefs to spatial arrangement."
         },
         {
-          "term": "pedestrian",
-          "pronunciation": "/pəˈdes.tri.ən/",
-          "meaning": "步行者，行人。",
-          "usage": "Usage: Pedestrian appears here as a useful concept for describing the project."
+          "term": "audiovisual",
+          "pronunciation": "/ˌɔː.di.əʊˈvɪʒ.u.əl/",
+          "meaning": "relating to the transmission of both sound and visual images.",
+          "usage": "The festival includes audiovisual training for local participants."
         },
         {
-          "term": "facade",
-          "pronunciation": "/fəˈsɑːd/",
-          "meaning": "建築立面。",
-          "usage": "Usage: Facade appears here as a useful concept for describing the project."
+          "term": "resilience",
+          "pronunciation": "/rɪˈzɪl.jəns/",
+          "meaning": "the capacity to recover quickly from difficulties.",
+          "usage": "Community resilience was demonstrated through the repurposing of materials after the festival."
         }
       ],
-      "audio": {}
+      "audio": {
+        "english_models": {
+          "marin": [
+            "./audio/2026-04-01/as-waters-rise-in-the-peruvian-amazon-espacio-com-n-s-cinema-stage-gathers-a-city-afloat-english-marin-1.mp3"
+          ],
+          "alloy": [
+            "./audio/2026-04-01/as-waters-rise-in-the-peruvian-amazon-espacio-com-n-s-cinema-stage-gathers-a-city-afloat-english-alloy-1.mp3"
+          ]
+        }
+      }
     }
   ],
   "prompts": [
     {
-      "title": "如果這個案子蓋在你家附近，你會想常常經過它嗎？",
-      "description": "試著從「Perobinha House / PORO Arquitetura」帶給人的第一印象去想，它是親切、壓迫，還是有點距離感？"
+      "title": "公寓的變身",
+      "description": "你認為如何通過設計改善公寓的功能性和美感？"
     },
     {
-      "title": "如果你要帶朋友去看這個案子，你會先介紹哪一個地方？",
-      "description": "這題能幫你找到自己最在意的是入口、材料、光線，還是空間怎麼被使用。"
+      "title": "現代建築與自然",
+      "description": "拉脫維亞的穀倉式度假屋如何在保持傳統的同時展現現代感？"
     },
     {
-      "title": "這個設計是真的讓生活更方便，還是只是看起來很厲害？",
-      "description": "你可以想想一般人每天走過、停留、使用時，會不會真的感受到它的好。"
+      "title": "漂浮的影院",
+      "description": "在亞馬遜洪水頻發的地區，創建一個漂浮影院能帶來什麼樣的社區影響？"
     }
   ]
 };
