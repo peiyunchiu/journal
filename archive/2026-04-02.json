@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-02",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "在阿姆斯特丹的住宅中，使用玻璃磚外立面給你帶來了哪些靈感？你會如何設計類似的建築？"
     }
   ]
-};
+}
