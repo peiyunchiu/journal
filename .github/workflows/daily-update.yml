@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   generate:
-    if: github.actor != 'github-actions[bot]'
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
