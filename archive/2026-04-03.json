@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-03",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "如果你要為立陶宛的失落斯捷特博物館設計一個新增的展覽空間，你會如何表現當地的文化與歷史？"
     }
   ]
-};
+}
