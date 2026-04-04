@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-04",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "觀察沿著伏爾加河的鱗片屋聚落，如何影響當地社區的氛圍和居住品質？"
     }
   ]
-};
+}
