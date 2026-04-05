@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-05",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "你覺得使用鋼格條和拉杆帶製作家具的方式，能為空間帶來哪些實用的優勢？"
     }
   ]
-};
+}
