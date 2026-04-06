@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-06",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "您認為在日本建造夯土別墅這一選擇如何影響當地環境和社區？"
     }
   ]
-};
+}
