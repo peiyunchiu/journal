@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-08",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "你如何看待kengo kuma為倫敦國家美術館擴建新翼的設計風格和其對城市文化的影響？"
     }
   ]
-};
+}
