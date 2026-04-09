@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-09",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "設計一個可以融入植物的建築外立面，創造出既美觀又能改善環境的空間。"
     }
   ]
-};
+}
