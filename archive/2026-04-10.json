@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-10",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "西安國際足球中心如何通過其開放的形狀連接城市生活與體育活動？"
     }
   ]
-};
+}
