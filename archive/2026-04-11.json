@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-11",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "對於韓國的辛代里住宅，你認為雙木斜頂的設計如何影響整體的視覺美感和結構穩定性？"
     }
   ]
-};
+}
