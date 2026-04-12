@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-12",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "你覺得雙木斜頂如何影響這所韓國住宅的整體美感與功能性？"
     }
   ]
-};
+}
