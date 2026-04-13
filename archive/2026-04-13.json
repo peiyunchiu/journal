@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-13",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "在重新改造的倉庫上打造圍合穹頂的屋頂公園，你認為這樣的設計對社區有什麼影響？"
     }
   ]
-};
+}
