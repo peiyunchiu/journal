@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-14",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "在設計熱帶房屋時，如何有效利用回收海洋塑料瓷磚和天然材料來創造綠色空間？"
     }
   ]
-};
+}
