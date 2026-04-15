@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-15",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "分析新加坡這家糕點店的曲線木材和藤條元素如何提升顧客的用餐體驗。"
     }
   ]
-};
+}
