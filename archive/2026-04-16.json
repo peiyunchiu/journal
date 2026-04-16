@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-16",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "你如何看待表現藝術中心的流線型鋁製外觀對建築美感的貢獻？"
     }
   ]
-};
+}
