@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-17",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "共享空曠庭院和綠色立面如何創造出一個更具生機的學習環境？"
     }
   ]
-};
+}
