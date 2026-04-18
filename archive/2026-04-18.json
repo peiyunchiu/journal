@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-18",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "你如何看待海德拉巴學校的開放式院子和綠色立面，對學生生活和學習環境的影響？"
     }
   ]
-};
+}
