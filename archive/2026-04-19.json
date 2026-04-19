@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-19",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "在設計一個以綠色農產品為主的零售空間時，如何融合鋁材、木材和銅材讓空間更具吸引力？"
     }
   ]
-};
+}
