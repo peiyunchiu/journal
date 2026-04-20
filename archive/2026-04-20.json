@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-20",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "你認為鋪面與單體磚的結合在社區中心設計中有什麼樣的效果？"
     }
   ]
-};
+}
