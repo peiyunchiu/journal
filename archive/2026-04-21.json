@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-21",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "Safdie Architects 為切羅基文化中心選擇夯土塊，你認為這樣的選擇有何文化和環境意義？"
     }
   ]
-};
+}
