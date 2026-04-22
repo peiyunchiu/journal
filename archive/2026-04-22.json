@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-22",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "你如何評價高架人行道在串聯博物館區與城市其他部分中的重要性？"
     }
   ]
-};
+}
