@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-23",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -190,4 +190,4 @@ window.DAILY_CONTENT = {
       "description": "分析wasl塔的扭曲造型，這種獨特的結構對於當地城市景觀有何影響？"
     }
   ]
-};
+}
