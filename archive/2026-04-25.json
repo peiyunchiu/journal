@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-25",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "這座小型社區圖書館如同貝殼般開合，您覺得這種設計對社區使用有何獨特意義？"
     }
   ]
-};
+}
