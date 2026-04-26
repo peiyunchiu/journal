@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-26",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "想像一個住宅小區，利用曲面造型來創造舒適且吸引人的居住空間，應用在現代建築中。"
     }
   ]
-};
+}
