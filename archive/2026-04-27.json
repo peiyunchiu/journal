@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-27",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "在設計健康 retreat 時，如何利用光線與材質創造儀式感的氛圍？"
     }
   ]
-};
+}
