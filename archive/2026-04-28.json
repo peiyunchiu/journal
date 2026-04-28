@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-04-28",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -367,4 +367,4 @@ window.DAILY_CONTENT = {
       "description": "在設計美圖立方藝術中心時，您會如何利用摺疊的PTFE立面來增強建築的視覺吸引力？"
     }
   ]
-};
+}
