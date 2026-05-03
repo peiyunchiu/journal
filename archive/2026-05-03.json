@@ -1,4 +1,4 @@
-window.DAILY_CONTENT = {
+{
   "date": "2026-05-03",
   "settings": {
     "defaultEnglishVoice": "marin",
@@ -190,4 +190,4 @@ window.DAILY_CONTENT = {
       "description": "你可以想想一般人每天走過、停留、使用時，會不會真的感受到它的好。"
     }
   ]
-};
+}
